@@ -2,7 +2,7 @@ import { IsNotEmpty } from "class-validator";
 import { TaskStatus } from "../task.model";
 
 export class CreateTaskDTO {
-  id?: string;
+  id: string;
 
   @IsNotEmpty()
   title: string;
@@ -10,5 +10,5 @@ export class CreateTaskDTO {
   @IsNotEmpty()
   description: string;
 
-  status: TaskStatus;
+  status?: TaskStatus;
 }
