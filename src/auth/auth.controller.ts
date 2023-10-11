@@ -30,7 +30,7 @@ export class AuthController {
     return dataLogin;
   }
   @Post("/test")
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard())
   test(@Req() req) {
     console.log(req);
   }
