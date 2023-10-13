@@ -8,13 +8,17 @@ import { Repository } from "typeorm";
 import { TaskStatus } from "./task.model";
 import { User } from "src/auth/user.entity";
 import { GetTasksFilterDTO } from "./dto/get-tasks-fillter.dto";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class TaskService {
   constructor(
     @InjectRepository(Task)
     private taskRepository: Repository<Task>,
-  ) {}
+    private configService: ConfigService,
+  ) {
+    console.log(this.configService.get("TEST_VALUE"));
+  }
   // private tasks: Task[] = [];
   async getTasks(filterDto: GetTasksFilterDTO, user: User): Promise<Task[]> {
     const { status, search } = filterDto;

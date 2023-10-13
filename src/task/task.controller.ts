@@ -19,6 +19,7 @@ import { AuthGuard } from "@nestjs/passport";
 import { User } from "src/auth/user.entity";
 import { GetUser } from "src/auth/get-user.decorator";
 import { GetTasksFilterDTO } from "./dto/get-tasks-fillter.dto";
+import { Logger } from "@nestjs/common";
 
 @Controller("tasks")
 @UseGuards(AuthGuard())
